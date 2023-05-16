@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "文件管理",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "index-detail": "../../components/index-detail/index-detail"
+  }
+}

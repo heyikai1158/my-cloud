@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/chat/chat",
+    "pages/my/my",
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "blurEffect": "extralight",
+    "color": "#999999",
+    "borderStyle": "black",
+    "selectedColor": "#0062cc",
+    "list": [
+      {
+        "iconPath": "static/file_n.png",
+        "selectedIconPath": "static/file.png",
+        "pagePath": "pages/index/index",
+        "text": "文件"
+      },
+      {
+        "iconPath": "static/chat_n.png",
+        "selectedIconPath": "static/chat.png",
+        "pagePath": "pages/chat/chat",
+        "text": "聊天"
+      },
+      {
+        "iconPath": "static/my_n.png",
+        "selectedIconPath": "static/my.png",
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

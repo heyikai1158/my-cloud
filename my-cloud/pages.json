@@ -1,0 +1,77 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path" : "pages/login/login",
+			"style" :                                                                                    
+			{
+			    "navigationBarTitleText": "登录",
+			    "enablePullDownRefresh": false
+			}
+		}
+        ,{
+            "path" : "pages/chat/chat",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "在线沟通",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/my",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "个人信息",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path": "pages/index/index",
+            "style": {
+            	"navigationBarTitleText": "文件管理",
+            	"enablePullDownRefresh": false,
+            	"app-plus": {
+            		"bounce": "vertical",
+            		"titleNView": false
+            	}
+            }
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {},
+	"tabBar": {
+		"blurEffect": "extralight",
+		"color": "#999999",
+		"borderStyle": "black",
+		"spacing": "5rpx",
+		"height": "100rpx",
+		"selectedColor": "#0062cc",
+		"fontSize": "12px",
+		"iconWidth": "16px",
+		"list": [{
+				"iconPath": "static/file_n.png",
+				"selectedIconPath": "static/file.png",
+				"pagePath": "pages/index/index",
+				"text": "文件"
+			},
+			{
+				"iconPath": "static/chat_n.png",
+				"selectedIconPath": "static/chat.png",
+				"pagePath": "pages/chat/chat",
+				"text": "聊天"
+			},
+			{
+				"iconPath": "static/my_n.png",
+				"selectedIconPath": "static/my.png",
+				"pagePath": "pages/my/my",
+				"text": "我的"
+			}
+		]
+	}
+}
