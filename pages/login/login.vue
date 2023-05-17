@@ -136,6 +136,9 @@
 
 			.item-btns {
 				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-top: 1rem;
 
 				button {
 					width: 100px;

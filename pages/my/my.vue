@@ -10,6 +10,17 @@
 			return {
 				
 			};
+		},
+		onShow() {
+			this.setTabbarColor();
+		},
+		methods: {
+			setTabbarColor(){
+				uni.setTabBarStyle({
+					backgroundColor:'#fff',
+					selectedColor:'#7967fd'
+				})
+			}
 		}
 	}
 </script>

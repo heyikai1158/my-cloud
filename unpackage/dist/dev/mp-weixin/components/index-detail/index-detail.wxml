@@ -1,1 +1,1 @@
-<view></view>
+<view class="detail"><view class="file-icon"><image src="/static/file/MP4.png" mode=""></image></view><view class="file-title"><label>测试文件</label></view><view class="file-info"><label>123MB</label><label>2023/05/17 10:09</label></view><view class="file-btns"><button>分享</button><button>下载</button><button>删除</button></view><view class="file-content"></view></view>

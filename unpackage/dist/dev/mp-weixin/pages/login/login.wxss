@@ -93,6 +93,9 @@ view {
 }
 .login .login-form .item-btns {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
 }
 .login .login-form .item-btns button {
   width: 100px;

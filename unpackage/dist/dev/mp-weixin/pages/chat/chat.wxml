@@ -1,1 +1,1 @@
-<view></view>
+<view class="chat"><view class="status_bar"></view><view class="chat-items"><view class="chat-item"><image src="/static/chat/qun.png" mode=""></image><view class="item-info"><label class="info-name">何益恺</label><label class="info-last-content"> 123 </label></view><label>2018/12/10 19:58</label><button>删除</button></view></view></view>

@@ -42,24 +42,30 @@
   display: none;
 }
 .content .file-detail {
+  background-color: #fff;
   width: 90%;
   margin: 10px auto;
   border-radius: 15px;
   padding: 10px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.09), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  transform: translateX(-200%);
+  animation: slideInLeft 1s ease-in-out 0s forwards;
 }
 .content .file-nav {
-  width: 90%;
+  background-color: #fff;
+  width: 95%;
   margin: 0rem auto;
   padding: 1rem 0;
+  border-radius: 15px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.09), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   transform: translateX(-200%);
   animation: slideInLeft 0.5s ease-in-out 0s forwards;
 }
 .content .file-nav .nav-home {
-  margin-right: 0.2rem;
+  margin: 0 0.2rem;
   display: flex;
   align-items: center;
   padding: 5px;
@@ -75,9 +81,13 @@
 }
 .content .file-nav .nav-home:active,
 .content .file-nav .nav-item:active {
+  min-height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #e2e3e6;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.09), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  border-radius: 13px;
+  border-radius: 10px;
 }
 .content .file-list {
   width: 90%;
@@ -139,7 +149,15 @@
 .content .file-list .list-items .one-item .item-btns button {
   width: 2.5rem;
   max-height: 2rem;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content .file-list .list-items .one-item:active {
+  margin: 0 0.3rem;
+  background-color: #e9e9ea;
+  border-radius: 10px;
+  transition: all 0.2s ease 0s;
 }
 .imgSize {
   width: 100%;

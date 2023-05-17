@@ -5,7 +5,11 @@
 			"style" :                                                                                    
 			{
 			    "navigationBarTitleText": "登录",
-			    "enablePullDownRefresh": false
+			    "enablePullDownRefresh": false,
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView": false
+				}
 			}
 		}
         ,{
@@ -13,7 +17,11 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "在线沟通",
-                "enablePullDownRefresh": true
+                "enablePullDownRefresh": false,
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView": false
+				}
             }
             
         }
@@ -30,11 +38,7 @@
             "path": "pages/index/index",
             "style": {
             	"navigationBarTitleText": "文件管理",
-            	"enablePullDownRefresh": false,
-            	"app-plus": {
-            		"bounce": "vertical",
-            		"titleNView": false
-            	}
+            	"enablePullDownRefresh": false
             }
         }
     ],
@@ -46,14 +50,14 @@
 	},
 	"uniIdRouter": {},
 	"tabBar": {
-		"blurEffect": "extralight",
+		// "blurEffect": "extralight",
 		"color": "#999999",
 		"borderStyle": "black",
 		"spacing": "5rpx",
-		"height": "100rpx",
+		"height": "60rpx",
 		"selectedColor": "#0062cc",
-		"fontSize": "12px",
-		"iconWidth": "16px",
+		"fontSize": "14px",
+		"iconWidth": "25px",
 		"list": [{
 				"iconPath": "static/file_n.png",
 				"selectedIconPath": "static/file.png",

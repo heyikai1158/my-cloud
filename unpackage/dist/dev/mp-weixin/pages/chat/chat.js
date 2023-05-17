@@ -3,6 +3,21 @@ const common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
   data() {
     return {};
+  },
+  onShow() {
+    this.setTabbarColor();
+  },
+  methods: {
+    setTabbarColor() {
+      common_vendor.index.setTabBarStyle({
+        backgroundColor: "#171425",
+        selectedColor: "#fff"
+      });
+      common_vendor.index.setNavigationBarColor({
+        frontColor: "#ffffff",
+        backgroundColor: "#2f2c4d"
+      });
+    }
   }
 };
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {

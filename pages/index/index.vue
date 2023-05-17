@@ -38,7 +38,7 @@
 				123
 			</view>
 		</view>
-		<view class="file-list">
+		<view class="file-list" v-if="!showDetail">
 			<view class="list-title">
 				<span>名称</span>
 				<span>大小</span>
@@ -54,26 +54,13 @@
 						999MB
 					</view>
 					<view class="item-btns">
-						<button type="primary" size="mini">查看</button>
-						<button type="warn" size="mini">删除</button>
-					</view>
-				</view>
-				<view class="one-item">
-					<view class="item-name">
-						<image src="../../static/file/java.png" mode=""></image>
-						<span>123</span>
-					</view>
-					<view class="item-size">
-						999MB
-					</view>
-					<view class="item-btns">
-						<button type="primary" size="mini">查看</button>
-						<button type="warn" size="mini">删除</button>
+						<button type="primary" size="mini">&#10004</button>
+						<button type="warn" size="mini">&#10006</button>
 					</view>
 				</view>
 			</view>
 		</view>
-		<view class="file-detail">
+		<view class="file-detail" v-else>
 			<IndexDetail></IndexDetail>
 		</view>
 	</view>
@@ -87,17 +74,23 @@
 				indicatorDots: true,
 				autoplay: true,
 				interval: 5000,
-				duration: 500
+				duration: 500,
+				showDetail:false
 			}
 		},
 		components:{
 			IndexDetail
 		},
-		onLoad() {
-
+		onShow() {
+			this.setTabbarColor();
 		},
 		methods: {
-
+			setTabbarColor(){
+				uni.setTabBarStyle({
+					backgroundColor:'#fff',
+					selectedColor:'#7967fd'
+				})
+			}
 		}
 	}
 </script>
@@ -125,25 +118,31 @@
 		}
 		
 		.file-detail{
+			background-color: #fff;
 			width: 90%;
 			margin: 10px auto;
 			border-radius: 15px;
 			padding: 10px;
 			box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.09), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+			transform: translateX(-200%);
+			animation: slideInLeft 1s ease-in-out 0s forwards;
 		}
 
 		.file-nav {
-			width: 90%;
+			background-color: #fff;
+			width: 95%;
 			margin: 0rem auto;
 			padding: 1rem 0;
+			border-radius: 15px;
 			display: flex;
 			justify-content: flex-start;
 			align-items: center;
+			box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.09), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 			transform: translateX(-200%);
 			animation: slideInLeft 0.5s ease-in-out 0s forwards;
 
 			.nav-home {
-				margin-right: 0.2rem;
+				margin: 0 0.2rem;
 				display: flex;
 				align-items: center;
 
@@ -163,9 +162,13 @@
 
 			.nav-home:active,
 			.nav-item:active {
+				min-height: 2rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 				background-color: #e2e3e6;
 				box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.09), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-				border-radius: 13px;
+				border-radius: 10px;
 			}
 		}
 
@@ -235,9 +238,18 @@
 						button {
 							width: 2.5rem;
 							max-height: 2rem;
-							text-align: center;
+							display: flex;
+							justify-content: center;
+							align-items: center;
 						}
 					}
+				}
+				
+				.one-item:active{
+					margin: 0 0.3rem;
+					background-color: #e9e9ea;
+					border-radius: 10px;
+					transition: all 0.2s ease 0s;
 				}
 			}
 		}
