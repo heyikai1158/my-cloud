@@ -133,7 +133,10 @@ if (uni.restoreGlobal) {
   const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$4], ["__file", "C:/Users/user/Documents/HBuilderProjects/my-cloud/pages/login/login.vue"]]);
   const _sfc_main$4 = {
     data() {
-      return {};
+      return {
+        //初始化点击位置的x坐标
+        startX: 0
+      };
     },
     onShow() {
       this.setTabbarColor();
@@ -148,6 +151,22 @@ if (uni.restoreGlobal) {
           frontColor: "#ffffff",
           backgroundColor: "#2f2c4d"
         });
+      },
+      touchStart: function(e) {
+        if (e.touches.length == 1) {
+          this.startX = e.touches[0].clientX;
+        }
+      },
+      touchEnd: function(e) {
+        if (e.changedTouches.length == 1) {
+          var endX = e.changedTouches[0].clientX;
+          let diff = endX - this.startX;
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+              formatAppLog("log", "at pages/chat/chat.vue:76", "左滑...");
+            }
+          }
+        }
       }
     }
   };
@@ -160,18 +179,53 @@ if (uni.restoreGlobal) {
         vue.createElementVNode("span", null, "我的会话")
       ]),
       vue.createElementVNode("view", { class: "chat-items" }, [
-        vue.createElementVNode("view", { class: "chat-item" }, [
-          vue.createElementVNode("image", {
-            src: "/static/chat/qun.png",
-            mode: ""
-          }),
-          vue.createElementVNode("view", { class: "item-info" }, [
-            vue.createElementVNode("span", { class: "info-name" }, "何益恺"),
-            vue.createElementVNode("span", { class: "info-last-content" }, " 123 ")
-          ]),
-          vue.createElementVNode("span", null, "2018/12/10 19:58"),
-          vue.createElementVNode("button", null, "删除")
-        ])
+        vue.createElementVNode(
+          "view",
+          {
+            class: "chat-item",
+            onTouchstart: _cache[0] || (_cache[0] = (...args) => $options.touchStart && $options.touchStart(...args)),
+            onTouchend: _cache[1] || (_cache[1] = (...args) => $options.touchEnd && $options.touchEnd(...args))
+          },
+          [
+            vue.createElementVNode("image", {
+              src: "/static/chat/qun.png",
+              mode: ""
+            }),
+            vue.createElementVNode("view", { class: "item-info" }, [
+              vue.createElementVNode("label", { class: "info-name" }, "何益恺"),
+              vue.createElementVNode("label", { class: "info-last-content" }, " 123123123123123 ")
+            ]),
+            vue.createElementVNode("label", null, "2018/12/10 19:58"),
+            vue.createElementVNode("button", { size: "mini" }, "DEL")
+          ],
+          32
+          /* HYDRATE_EVENTS */
+        ),
+        vue.createElementVNode(
+          "view",
+          {
+            class: "chat-item",
+            onTouchstart: _cache[2] || (_cache[2] = (...args) => $options.touchStart && $options.touchStart(...args)),
+            onTouchend: _cache[3] || (_cache[3] = (...args) => $options.touchEnd && $options.touchEnd(...args))
+          },
+          [
+            vue.createElementVNode("image", {
+              src: "/static/chat/qun.png",
+              mode: ""
+            }),
+            vue.createElementVNode("view", { class: "item-info" }, [
+              vue.createElementVNode("label", { class: "info-name" }, "何益恺"),
+              vue.createElementVNode("label", { class: "info-last-content" }, " 123123123123123 ")
+            ]),
+            vue.createElementVNode("label", null, "2018/12/10 19:58"),
+            vue.createElementVNode("button", {
+              size: "mini",
+              class: "btn-in"
+            }, "DEL")
+          ],
+          32
+          /* HYDRATE_EVENTS */
+        )
       ])
     ]);
   }
