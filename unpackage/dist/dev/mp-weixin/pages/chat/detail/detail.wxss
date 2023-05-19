@@ -1,0 +1,198 @@
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+@keyframes slideInLeft {
+0% {
+    transform: translateX(-200%);
+}
+100% {
+    transform: translateX(0);
+}
+}
+@keyframes slideInRight {
+0% {
+    transform: translateX(200%);
+}
+100% {
+    transform: translateX(0);
+}
+}
+.chat-detail {
+  color: #fff;
+  width: 100vw;
+  height: 100vh;
+  background-color: #171425;
+}
+.chat-detail .detail-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #82808e;
+  height: 2rem;
+  line-height: 2rem;
+  margin-bottom: 0.3rem;
+}
+.chat-detail .detail-time label {
+  font-weight: 200;
+}
+.chat-detail .detail-body {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0.3rem auto;
+}
+.chat-detail .detail-body .body-left {
+  margin-bottom: 0.5rem;
+  display: flex;
+  transform: translateX(-200%);
+  animation: slideInLeft 1.5s ease-in-out 0s forwards;
+}
+.chat-detail .detail-body .body-left .left-img {
+  width: 3rem;
+  height: 3rem;
+}
+.chat-detail .detail-body .body-left .left-img image {
+  max-width: 3rem;
+  max-height: 3rem;
+  border-radius: 50%;
+}
+.chat-detail .detail-body .body-left .left-img .left-status {
+  width: 1rem;
+  height: 1rem;
+  position: relative;
+  right: -2rem;
+  bottom: 1rem;
+  border-radius: 50%;
+}
+.chat-detail .detail-body .body-left .left-img .status-online {
+  background-color: greenyellow;
+}
+.chat-detail .detail-body .body-left .left-img .status-offline {
+  background-color: darkgrey;
+}
+.chat-detail .detail-body .body-left .left-info {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0.2rem;
+  padding: 0.1rem 0;
+}
+.chat-detail .detail-body .body-left .left-info label {
+  font-weight: 200;
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+}
+.chat-detail .detail-body .body-left .left-info .info-content {
+  min-height: 1.8rem;
+  line-height: 1.8rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background-color: #3f3b52;
+  max-width: 75vw;
+}
+.chat-detail .detail-body .body-left .left-info .info-content image {
+  min-width: 50vw;
+  width: 100%;
+}
+.chat-detail .detail-body .body-right {
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  transform: translateX(200%);
+  animation: slideInRight 1.5s ease-in-out 0s forwards;
+}
+.chat-detail .detail-body .body-right .right-img {
+  width: 3rem;
+  height: 3rem;
+}
+.chat-detail .detail-body .body-right .right-img image {
+  max-width: 3rem;
+  max-height: 3rem;
+  border-radius: 50%;
+}
+.chat-detail .detail-body .body-right .right-img .right-status {
+  width: 1rem;
+  height: 1rem;
+  position: relative;
+  bottom: 1rem;
+  border-radius: 50%;
+}
+.chat-detail .detail-body .body-right .right-img .status-online {
+  background-color: greenyellow;
+}
+.chat-detail .detail-body .body-right .right-img .status-offline {
+  background-color: darkgrey;
+}
+.chat-detail .detail-body .body-right .right-info {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0.2rem;
+  padding: 0.1rem 0;
+}
+.chat-detail .detail-body .body-right .right-info label {
+  display: flex;
+  justify-content: flex-end;
+  font-weight: 200;
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+}
+.chat-detail .detail-body .body-right .right-info .info-content {
+  min-height: 1.8rem;
+  line-height: 1.8rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background-color: #3f3b52;
+  max-width: 75vw;
+}
+.chat-detail .detail-body .body-right .right-info .info-content image {
+  min-width: 50vw;
+  width: 100%;
+}
+.chat-detail .detail-body .body-right .right-info .info-content a {
+  font-size: 1rem;
+  font-weight: 200;
+}
+.chat-detail .detail-footer {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  background-color: #221f30;
+}
+.chat-detail .detail-footer .footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+}
+.chat-detail .detail-footer .footer-main input {
+  flex-grow: 1;
+}
+.chat-detail .detail-footer .footer-other {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 15vh;
+  background-color: #3f3b52;
+}

@@ -63,6 +63,9 @@
 		<view class="file-detail" v-else>
 			<IndexDetail></IndexDetail>
 		</view>
+		<view class="file-upload">
+			<uni-icons type="upload" size="50"></uni-icons>
+		</view>
 	</view>
 </template>
 
@@ -130,7 +133,7 @@
 
 		.file-nav {
 			background-color: #fff;
-			width: 95%;
+			width: 90%;
 			margin: 0rem auto;
 			padding: 1rem 0;
 			border-radius: 15px;
@@ -178,6 +181,8 @@
 			transform: translateX(-200%);
 			animation: slideInLeft 0.5s ease-in-out 0s forwards;
 			box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.09), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+			border-bottom-left-radius: 20px;
+			border-bottom-right-radius: 20px;
 
 			.list-title {
 				height: 2.5rem;
@@ -195,6 +200,8 @@
 				flex-direction: column;
 				background-color: #fff;
 				padding-bottom: 0.5rem;
+				border-bottom-left-radius: 20px;
+				border-bottom-right-radius: 20px;
 
 				.one-item {
 					transform: translateX(-200%);
@@ -251,7 +258,22 @@
 					border-radius: 10px;
 					transition: all 0.2s ease 0s;
 				}
+				
+				.one-item:last-child{
+					border-bottom-left-radius: 20px;
+					border-bottom-right-radius: 20px;
+				}
 			}
+		}
+		
+		.file-upload{
+			position: fixed;
+			bottom: 2rem;
+			right: 2rem;
+			background-color: #e0e1e2;
+			border-radius: 50%;
+			padding: 0.5rem;
+			box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 		}
 	}
 

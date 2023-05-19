@@ -41,6 +41,15 @@
             	"enablePullDownRefresh": false
             }
         }
+        ,{
+            "path" : "pages/chat/detail/detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "聊天框",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

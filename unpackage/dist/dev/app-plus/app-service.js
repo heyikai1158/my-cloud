@@ -45,7 +45,7 @@ if (uni.restoreGlobal) {
     }
     return target;
   };
-  const _sfc_main$5 = {
+  const _sfc_main$6 = {
     data() {
       return {
         "loginOrRegister": false,
@@ -74,7 +74,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "login" }, [
       vue.createElementVNode("image", {
         src: "/static/bg-3.jpg",
@@ -130,16 +130,28 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$4], ["__file", "C:/Users/user/Documents/HBuilderProjects/my-cloud/pages/login/login.vue"]]);
-  const _sfc_main$4 = {
+  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$5], ["__file", "C:/Users/user/Documents/HBuilderProjects/my-cloud/pages/login/login.vue"]]);
+  const _sfc_main$5 = {
     data() {
       return {
         //初始化点击位置的x坐标
-        startX: 0
+        startX: 0,
+        showDelButton: false,
+        chatItems: []
+        // 存储chat-item的状态
       };
     },
     onShow() {
       this.setTabbarColor();
+    },
+    created() {
+      const chatItemsCount = 2;
+      for (let i = 0; i < chatItemsCount; i++) {
+        this.chatItems.push({
+          showDelButton: false,
+          startX: 0
+        });
+      }
     },
     methods: {
       setTabbarColor() {
@@ -152,25 +164,32 @@ if (uni.restoreGlobal) {
           backgroundColor: "#2f2c4d"
         });
       },
-      touchStart: function(e) {
-        if (e.touches.length == 1) {
-          this.startX = e.touches[0].clientX;
-        }
+      toChat(index) {
+        uni.navigateTo({
+          url: "/pages/chat/detail/detail?userid=" + index
+        });
       },
-      touchEnd: function(e) {
-        if (e.changedTouches.length == 1) {
-          var endX = e.changedTouches[0].clientX;
-          let diff = endX - this.startX;
-          if (Math.abs(diff) > 50) {
-            if (diff > 0) {
-              formatAppLog("log", "at pages/chat/chat.vue:76", "左滑...");
-            }
+      touchStart(event, toIndex) {
+        this.chatItems[toIndex].startX = event.touches[0].clientX;
+      },
+      touchEnd(event, toIndex) {
+        const endX = event.changedTouches[0].clientX;
+        const diff = endX - this.chatItems[toIndex].startX;
+        formatAppLog("log", "at pages/chat/chat.vue:96", diff);
+        if (Math.abs(diff) >= 50 || diff == 0) {
+          if (diff > 0) {
+            this.chatItems[toIndex].showDelButton = false;
+          } else {
+            this.chatItems[toIndex].showDelButton = true;
           }
         }
+      },
+      clickButton(index) {
+        formatAppLog("log", "at pages/chat/chat.vue:107", "点击按钮");
       }
     }
   };
-  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "chat" }, [
       vue.createElementVNode("view", { class: "status_bar" }, [
         vue.createCommentVNode(" 这里是状态栏 ")
@@ -179,58 +198,45 @@ if (uni.restoreGlobal) {
         vue.createElementVNode("span", null, "我的会话")
       ]),
       vue.createElementVNode("view", { class: "chat-items" }, [
-        vue.createElementVNode(
-          "view",
-          {
-            class: "chat-item",
-            onTouchstart: _cache[0] || (_cache[0] = (...args) => $options.touchStart && $options.touchStart(...args)),
-            onTouchend: _cache[1] || (_cache[1] = (...args) => $options.touchEnd && $options.touchEnd(...args))
-          },
-          [
-            vue.createElementVNode("image", {
-              src: "/static/chat/qun.png",
-              mode: ""
-            }),
-            vue.createElementVNode("view", { class: "item-info" }, [
-              vue.createElementVNode("label", { class: "info-name" }, "何益恺"),
-              vue.createElementVNode("label", { class: "info-last-content" }, " 123123123123123 ")
-            ]),
-            vue.createElementVNode("label", null, "2018/12/10 19:58"),
-            vue.createElementVNode("button", { size: "mini" }, "DEL")
-          ],
-          32
-          /* HYDRATE_EVENTS */
-        ),
-        vue.createElementVNode(
-          "view",
-          {
-            class: "chat-item",
-            onTouchstart: _cache[2] || (_cache[2] = (...args) => $options.touchStart && $options.touchStart(...args)),
-            onTouchend: _cache[3] || (_cache[3] = (...args) => $options.touchEnd && $options.touchEnd(...args))
-          },
-          [
-            vue.createElementVNode("image", {
-              src: "/static/chat/qun.png",
-              mode: ""
-            }),
-            vue.createElementVNode("view", { class: "item-info" }, [
-              vue.createElementVNode("label", { class: "info-name" }, "何益恺"),
-              vue.createElementVNode("label", { class: "info-last-content" }, " 123123123123123 ")
-            ]),
-            vue.createElementVNode("label", null, "2018/12/10 19:58"),
-            vue.createElementVNode("button", {
-              size: "mini",
-              class: "btn-in"
-            }, "DEL")
-          ],
-          32
-          /* HYDRATE_EVENTS */
-        )
+        (vue.openBlock(true), vue.createElementBlock(
+          vue.Fragment,
+          null,
+          vue.renderList($data.chatItems, (item, index) => {
+            return vue.openBlock(), vue.createElementBlock("view", {
+              class: "chat-item",
+              key: index,
+              onTouchstart: ($event) => $options.touchStart($event, index),
+              onTouchend: ($event) => $options.touchEnd($event, index),
+              "data-index": "{{index}}"
+            }, [
+              vue.createElementVNode("image", {
+                src: "/static/chat/test1.jpeg",
+                mode: ""
+              }),
+              vue.createElementVNode("view", {
+                class: "item-info",
+                onClick: ($event) => $options.toChat(index)
+              }, [
+                vue.createElementVNode("label", { class: "info-name" }, "何益恺"),
+                vue.createElementVNode("label", { class: "info-last-content" }, " 123123123123123 ")
+              ], 8, ["onClick"]),
+              vue.createElementVNode("label", null, "2018/12/10 19:58"),
+              vue.withDirectives(vue.createElementVNode("button", {
+                size: "mini",
+                onClick: ($event) => $options.clickButton(index)
+              }, "DEL", 8, ["onClick"]), [
+                [vue.vShow, item.showDelButton]
+              ])
+            ], 40, ["onTouchstart", "onTouchend"]);
+          }),
+          128
+          /* KEYED_FRAGMENT */
+        ))
       ])
     ]);
   }
-  const PagesChatChat = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$3], ["__file", "C:/Users/user/Documents/HBuilderProjects/my-cloud/pages/chat/chat.vue"]]);
-  const _sfc_main$3 = {
+  const PagesChatChat = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$4], ["__file", "C:/Users/user/Documents/HBuilderProjects/my-cloud/pages/chat/chat.vue"]]);
+  const _sfc_main$4 = {
     data() {
       return {};
     },
@@ -246,11 +252,11 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view");
   }
-  const PagesMyMy = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$2], ["__file", "C:/Users/user/Documents/HBuilderProjects/my-cloud/pages/my/my.vue"]]);
-  const _sfc_main$2 = {
+  const PagesMyMy = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$3], ["__file", "C:/Users/user/Documents/HBuilderProjects/my-cloud/pages/my/my.vue"]]);
+  const _sfc_main$3 = {
     name: "index-detail",
     data() {
       return {
@@ -276,7 +282,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "detail" }, [
       vue.createCommentVNode(" 图标、名称、(大小、时间)、(分享、下载、删除) "),
       vue.createElementVNode("view", { class: "file-icon" }, [
@@ -303,8 +309,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const IndexDetail = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$1], ["__scopeId", "data-v-93c9becd"], ["__file", "C:/Users/user/Documents/HBuilderProjects/my-cloud/components/index-detail/index-detail.vue"]]);
-  const _sfc_main$1 = {
+  const IndexDetail = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$2], ["__scopeId", "data-v-93c9becd"], ["__file", "C:/Users/user/Documents/HBuilderProjects/my-cloud/components/index-detail/index-detail.vue"]]);
+  const _sfc_main$2 = {
     data() {
       return {
         indicatorDots: true,
@@ -329,8 +335,9 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_IndexDetail = vue.resolveComponent("IndexDetail");
+    const _component_uni_icons = vue.resolveComponent("uni-icons");
     return vue.openBlock(), vue.createElementBlock("view", { class: "content" }, [
       vue.createElementVNode("view", { class: "uni-margin-wrap" }, [
         vue.createElementVNode("swiper", {
@@ -417,14 +424,117 @@ if (uni.restoreGlobal) {
         class: "file-detail"
       }, [
         vue.createVNode(_component_IndexDetail)
-      ]))
+      ])),
+      vue.createElementVNode("view", { class: "file-upload" }, [
+        vue.createVNode(_component_uni_icons, {
+          type: "upload",
+          size: "50"
+        })
+      ])
     ]);
   }
-  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render], ["__file", "C:/Users/user/Documents/HBuilderProjects/my-cloud/pages/index/index.vue"]]);
+  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$1], ["__file", "C:/Users/user/Documents/HBuilderProjects/my-cloud/pages/index/index.vue"]]);
+  const _sfc_main$1 = {
+    data() {
+      return {};
+    },
+    onLoad(options) {
+      formatAppLog("log", "at pages/chat/detail/detail.vue:65", options.userid);
+    },
+    onShow() {
+      this.updateHeaderStyle();
+    },
+    methods: {
+      updateHeaderStyle() {
+        uni.setNavigationBarColor({
+          frontColor: "#ffffff",
+          backgroundColor: "#171425"
+        });
+      },
+      addTest() {
+        formatAppLog("log", "at pages/chat/detail/detail.vue:78", "动态添加信息");
+      }
+    }
+  };
+  function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_uni_icons = vue.resolveComponent("uni-icons");
+    return vue.openBlock(), vue.createElementBlock("view", { class: "chat-detail" }, [
+      vue.createCommentVNode(" 时间每分钟检测一次，若在新的一分钟内发送信息，则刷新时间并插入 "),
+      vue.createElementVNode("view", { class: "detail-time" }, [
+        vue.createElementVNode("label", null, "2018-12-10 21:51")
+      ]),
+      vue.createElementVNode("view", { class: "detail-body" }, [
+        vue.createElementVNode("view", { class: "body-left" }, [
+          vue.createElementVNode("view", { class: "left-img" }, [
+            vue.createElementVNode("image", {
+              src: "/static/chat/test1.jpeg",
+              mode: ""
+            }),
+            vue.createCommentVNode(' <view class="left-status status-online"></view> '),
+            vue.createElementVNode("view", { class: "left-status status-offline" })
+          ]),
+          vue.createElementVNode("view", { class: "left-info" }, [
+            vue.createElementVNode("label", { for: "" }, "小李"),
+            vue.createElementVNode("view", { class: "info-content" }, [
+              vue.createElementVNode("label", { for: "" }, " 国台办发言人马晓光19日答记者问表示，经向有关主管部门了解，即日起恢复旅行社经营台湾居民来大陆团队游业务。我们热忱欢迎台湾同胞来大陆旅游观光，游览大好河山，看看各地发展新貌。 ")
+            ])
+          ])
+        ]),
+        vue.createElementVNode("view", { class: "body-right" }, [
+          vue.createElementVNode("view", { class: "right-info" }, [
+            vue.createElementVNode("label", { for: "" }, "我"),
+            vue.createElementVNode("view", { class: "info-content" }, [
+              vue.createCommentVNode(' <label for=""> '),
+              vue.createCommentVNode(" 国台办发言人马晓光19日答记者问表示，经向有关主管部门了解，即日起恢复旅行社经营台湾居民来大陆团队游业务。我们热忱欢迎台湾同胞来大陆旅游观光，游览大好河山，看看各地发展新貌。 "),
+              vue.createCommentVNode(" </label> "),
+              vue.createCommentVNode(' <image src="../../../static/bg-1.jpg" mode=""></image> '),
+              vue.createElementVNode("navigator", {
+                url: "/pages/index/index",
+                "open-type": "switchTab"
+              }, "分享给你的文件")
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "right-img" }, [
+            vue.createElementVNode("image", {
+              src: "/static/chat/test2.jpeg",
+              mode: ""
+            }),
+            vue.createElementVNode("view", { class: "right-status status-online" }),
+            vue.createCommentVNode(' <view class="right-status status-offline"></view> ')
+          ])
+        ])
+      ]),
+      vue.createElementVNode("view", { class: "detail-footer" }, [
+        vue.createCommentVNode(" 包含输入框、表情符、(文件/发送按钮) "),
+        vue.createElementVNode("view", { class: "footer-main" }, [
+          vue.createElementVNode("input", {
+            type: "text",
+            placeholder: "你想说什么"
+          }),
+          vue.createElementVNode("view", { class: "main-btns" }, [
+            vue.createVNode(_component_uni_icons, {
+              type: "paperclip",
+              size: "30",
+              color: "#fff"
+            }),
+            vue.createVNode(_component_uni_icons, {
+              onClick: $options.addTest,
+              type: "paperplane",
+              size: "30",
+              color: "#fff"
+            }, null, 8, ["onClick"])
+          ])
+        ]),
+        vue.createElementVNode("view", { class: "footer-other" }, " 暂时不放东西 ")
+      ])
+    ]);
+  }
+  const PagesChatDetailDetail = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render], ["__file", "C:/Users/user/Documents/HBuilderProjects/my-cloud/pages/chat/detail/detail.vue"]]);
   __definePage("pages/login/login", PagesLoginLogin);
   __definePage("pages/chat/chat", PagesChatChat);
   __definePage("pages/my/my", PagesMyMy);
   __definePage("pages/index/index", PagesIndexIndex);
+  __definePage("pages/chat/detail/detail", PagesChatDetailDetail);
   const _sfc_main = {
     onLaunch: function() {
       formatAppLog("log", "at App.vue:4", "App Launch");

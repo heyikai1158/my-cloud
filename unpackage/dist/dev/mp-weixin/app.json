@@ -3,7 +3,8 @@
     "pages/login/login",
     "pages/chat/chat",
     "pages/my/my",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/chat/detail/detail"
   ],
   "window": {
     "navigationBarTextStyle": "black",

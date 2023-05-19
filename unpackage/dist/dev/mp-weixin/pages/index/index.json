@@ -2,6 +2,7 @@
   "navigationBarTitleText": "文件管理",
   "enablePullDownRefresh": false,
   "usingComponents": {
-    "index-detail": "../../components/index-detail/index-detail"
+    "index-detail": "../../components/index-detail/index-detail",
+    "uni-icons": "../../uni_modules/uni-icons/components/uni-icons/uni-icons"
   }
 }

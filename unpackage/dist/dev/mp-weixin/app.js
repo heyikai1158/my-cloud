@@ -6,6 +6,7 @@ if (!Math) {
   "./pages/chat/chat.js";
   "./pages/my/my.js";
   "./pages/index/index.js";
+  "./pages/chat/detail/detail.js";
 }
 const _sfc_main = {
   onLaunch: function() {

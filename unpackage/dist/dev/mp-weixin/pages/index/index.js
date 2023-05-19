@@ -28,7 +28,12 @@ const _sfc_main = {
 };
 if (!Array) {
   const _component_IndexDetail = common_vendor.resolveComponent("IndexDetail");
-  _component_IndexDetail();
+  const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
+  (_component_IndexDetail + _easycom_uni_icons2)();
+}
+const _easycom_uni_icons = () => "../../uni_modules/uni-icons/components/uni-icons/uni-icons.js";
+if (!Math) {
+  _easycom_uni_icons();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
@@ -37,7 +42,12 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     c: $data.interval,
     d: $data.duration,
     e: !$data.showDetail
-  }, !$data.showDetail ? {} : {});
+  }, !$data.showDetail ? {} : {}, {
+    f: common_vendor.p({
+      type: "upload",
+      size: "50"
+    })
+  });
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "C:/Users/user/Documents/HBuilderProjects/my-cloud/pages/index/index.vue"]]);
 wx.createPage(MiniProgramPage);
