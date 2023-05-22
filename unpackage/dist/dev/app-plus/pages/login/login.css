@@ -23,13 +23,13 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-uni-view {
+uni-view[data-v-e4e4508d] {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: opposans;
 }
-@keyframes slideInLeft {
+@keyframes slideInLeft-e4e4508d {
 0% {
     opacity: 0.1;
     transform: translate(-200%, -50%);
@@ -39,7 +39,7 @@ uni-view {
     transform: translate(-50%, -50%);
 }
 }
-@keyframes slideInRight {
+@keyframes slideInRight-e4e4508d {
 0% {
     transform: translateX(-200%);
 }
@@ -47,25 +47,25 @@ uni-view {
     transform: translateX(0);
 }
 }
-.login {
+.login[data-v-e4e4508d] {
   width: 100vw;
   height: 100vh;
 }
-.login uni-image {
+.login uni-image[data-v-e4e4508d] {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
 }
-.login .login-form {
+.login .login-form[data-v-e4e4508d] {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.09), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   opacity: 0.1;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-200%, -50%);
-  animation: slideInLeft 1.5s ease-in-out 0s forwards;
+  animation: slideInLeft-e4e4508d 1.5s ease-in-out 0s forwards;
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -74,40 +74,40 @@ uni-view {
   padding: 3rem;
   border-radius: 2rem;
 }
-.login .login-form .form-item {
+.login .login-form .form-item[data-v-e4e4508d] {
   transform: translateX(-200%);
-  animation: slideInRight 1s ease-in-out 0s forwards;
+  animation: slideInRight-e4e4508d 1s ease-in-out 0s forwards;
 }
-.login .login-form .form-item .title {
+.login .login-form .form-item .title[data-v-e4e4508d] {
   color: #7e868c;
 }
-.login .login-form .form-item .uni-input {
+.login .login-form .form-item .uni-input[data-v-e4e4508d] {
   height: 2.5rem;
   line-height: 2.5rem;
   background-color: #f1f3f5;
   border-radius: 0.5rem;
   padding: 3px 10px;
 }
-.login .login-form .form-item .uni-input:focus {
+.login .login-form .form-item .uni-input[data-v-e4e4508d]:focus {
   border: 2px solid #68b4f0;
 }
-.login .login-form .item-btns {
+.login .login-form .item-btns[data-v-e4e4508d] {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
 }
-.login .login-form .item-btns uni-button {
+.login .login-form .item-btns uni-button[data-v-e4e4508d] {
   width: 100px;
 }
-.login .login-form .item-btns uni-button::after {
+.login .login-form .item-btns uni-button[data-v-e4e4508d]::after {
   border: none;
 }
-.login .login-form .item-btns .btn-1 {
+.login .login-form .item-btns .btn-1[data-v-e4e4508d] {
   color: #0c7792;
   background-color: #d8f3f6;
 }
-.login .login-form .item-btns .btn-2 {
+.login .login-form .item-btns .btn-2[data-v-e4e4508d] {
   color: #006adc;
   background-color: #e1f0ff;
 }

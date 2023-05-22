@@ -23,13 +23,13 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.chat {
+.chat.data-v-0a633310 {
   background-color: #171425;
   width: 100vw;
   height: 100vh;
   color: #fff;
 }
-.chat .chat-items {
+.chat .chat-items.data-v-0a633310 {
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -37,7 +37,7 @@
   align-items: center;
   padding-top: 0.2rem;
 }
-.chat .chat-items .chat-item {
+.chat .chat-items .chat-item.data-v-0a633310 {
   width: 93%;
   max-height: 3rem;
   overflow: hidden;
@@ -47,34 +47,34 @@
   padding: 0.5rem;
   margin: 0.2rem auto;
 }
-.chat .chat-items .chat-item image {
+.chat .chat-items .chat-item image.data-v-0a633310 {
   border-radius: 50%;
   max-width: 3rem;
   max-height: 3rem;
   margin-right: 0.5rem;
 }
-.chat .chat-items .chat-item .item-info {
+.chat .chat-items .chat-item .item-info.data-v-0a633310 {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
 }
-.chat .chat-items .chat-item .item-info .item-name {
+.chat .chat-items .chat-item .item-info .item-name.data-v-0a633310 {
   font-size: 20px;
   font-weight: 500;
 }
-.chat .chat-items .chat-item .item-info .item-last-content {
+.chat .chat-items .chat-item .item-info .item-last-content.data-v-0a633310 {
   max-width: 2rem;
   overflow-x: hidden;
 }
-.chat .chat-items .chat-item label {
+.chat .chat-items .chat-item label.data-v-0a633310 {
   flex: 1;
   display: flex;
   align-items: center;
   font-weight: 100;
 }
-.chat .chat-items .chat-item button {
+.chat .chat-items .chat-item button.data-v-0a633310 {
   background-color: #F34541;
   color: #fff;
   font-size: 16px;

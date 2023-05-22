@@ -63,9 +63,20 @@
 		<view class="file-detail" v-else>
 			<IndexDetail></IndexDetail>
 		</view>
-		<view class="file-upload">
-			<uni-icons type="upload" size="50"></uni-icons>
+		<view class="file-upload-uni" v-if="!showDetail">
+			<!-- #ifdef MP-WEIXIN -->
+			<uni-file-picker fileMediatype="all" :list-styles="listStyles" @select="select" @progress="progress"
+				@success="success" @fail="fail">
+				<button>选择上传文件</button>
+			</uni-file-picker>
+			<!-- #endif -->
+			<!-- #ifndef MP-WEIXIN -->
+			<input type="file" class="upload-uni-btn">
+			<!-- #endif -->
 		</view>
+		<!-- <view class="file-upload"> -->
+		<!-- <uni-icons type="upload" size="50"></uni-icons> -->
+		<!-- </view> -->
 	</view>
 </template>
 
@@ -78,27 +89,57 @@
 				autoplay: true,
 				interval: 5000,
 				duration: 500,
-				showDetail:false
+				showDetail: false,
+				listStyles: {
+					// 是否显示边框
+					border: false,
+					// 是否显示分隔线
+					dividline: false,
+					// 线条样式
+					borderStyle: {
+						width: 1,
+						color: 'blue',
+						radius: 2
+					}
+				}
 			}
 		},
-		components:{
+		components: {
 			IndexDetail
 		},
 		onShow() {
 			this.setTabbarColor();
 		},
 		methods: {
-			setTabbarColor(){
+			setTabbarColor() {
 				uni.setTabBarStyle({
-					backgroundColor:'#fff',
-					selectedColor:'#7967fd'
+					backgroundColor: '#fff',
+					selectedColor: '#7967fd'
 				})
+			},
+			// 获取上传状态
+			select(e) {
+				console.log('选择文件：', e)
+			},
+			// 获取上传进度
+			progress(e) {
+				console.log('上传进度：', e)
+			},
+
+			// 上传成功
+			success(e) {
+				console.log('上传成功')
+			},
+
+			// 上传失败
+			fail(e) {
+				console.log('上传失败：', e)
 			}
 		}
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	@keyframes slideInLeft {
 		0% {
 			opacity: 0.1;
@@ -115,12 +156,12 @@
 		background-color: #f7f8fa;
 		width: 100vw;
 		height: 100vh;
-		
-		.uni-margin-wrap{
+
+		.uni-margin-wrap {
 			display: none;
 		}
-		
-		.file-detail{
+
+		.file-detail {
 			background-color: #fff;
 			width: 90%;
 			margin: 10px auto;
@@ -157,8 +198,8 @@
 
 				padding: 5px;
 			}
-			
-			.nav-item{
+
+			.nav-item {
 				padding: 5px;
 				margin: 0 0.2rem;
 			}
@@ -251,22 +292,22 @@
 						}
 					}
 				}
-				
-				.one-item:active{
+
+				.one-item:active {
 					margin: 0 0.3rem;
 					background-color: #e9e9ea;
 					border-radius: 10px;
 					transition: all 0.2s ease 0s;
 				}
-				
-				.one-item:last-child{
+
+				.one-item:last-child {
 					border-bottom-left-radius: 20px;
 					border-bottom-right-radius: 20px;
 				}
 			}
 		}
-		
-		.file-upload{
+
+		.file-upload {
 			position: fixed;
 			bottom: 2rem;
 			right: 2rem;
@@ -274,6 +315,23 @@
 			border-radius: 50%;
 			padding: 0.5rem;
 			box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+			.upload-btn {
+				background-color: red;
+			}
+		}
+
+		.file-upload-uni {
+			position: fixed;
+			bottom: 3rem;
+			right: 1rem;
+			border-radius: 25px;
+			padding: 0.6rem;
+			box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+			.upload-uni-btn{
+				height: unset;
+				padding: 0.2rem 0.5rem;
+			}
 		}
 	}
 

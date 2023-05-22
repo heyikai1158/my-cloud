@@ -1,1 +1,1 @@
-<view></view>
+<view class="my"><view class="header-info"><image src="/static/chat/test1.jpeg" mode=""></image><label for="">早上好，XXX</label></view><view class="my-vip"><label for="" class="vip-title">我的会员</label><view class="vip-type"><image src="/static/my/v1.png" mode=""></image><label for="">普通会员</label></view></view><view class="my-size"><label for="">剩余容量</label><progress percent="{{60}}" activeColor="#2FC1FF" stroke-width="15" show-info font-size="15" active="true"/></view><view class="footer-info"><button type="warn">退出登录</button></view></view>

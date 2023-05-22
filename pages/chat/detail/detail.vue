@@ -81,7 +81,7 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	
 	@keyframes slideInLeft {
 	    0% {

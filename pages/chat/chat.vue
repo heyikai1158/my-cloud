@@ -110,7 +110,7 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	/*#ifdef APP-PLUS*/
 	.status_bar {
 		height: var(--status-bar-height);

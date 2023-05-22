@@ -23,7 +23,7 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-@keyframes slideInLeft {
+@keyframes slideInLeft-df6a20b5 {
 0% {
     transform: translateX(-200%);
 }
@@ -31,7 +31,7 @@
     transform: translateX(0);
 }
 }
-@keyframes slideInRight {
+@keyframes slideInRight-df6a20b5 {
 0% {
     transform: translateX(200%);
 }
@@ -39,13 +39,13 @@
     transform: translateX(0);
 }
 }
-.chat-detail {
+.chat-detail.data-v-df6a20b5 {
   color: #fff;
   width: 100vw;
   height: 100vh;
   background-color: #171425;
 }
-.chat-detail .detail-time {
+.chat-detail .detail-time.data-v-df6a20b5 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,31 +54,31 @@
   line-height: 2rem;
   margin-bottom: 0.3rem;
 }
-.chat-detail .detail-time label {
+.chat-detail .detail-time label.data-v-df6a20b5 {
   font-weight: 200;
 }
-.chat-detail .detail-body {
+.chat-detail .detail-body.data-v-df6a20b5 {
   display: flex;
   flex-direction: column;
   width: 90%;
   margin: 0.3rem auto;
 }
-.chat-detail .detail-body .body-left {
+.chat-detail .detail-body .body-left.data-v-df6a20b5 {
   margin-bottom: 0.5rem;
   display: flex;
   transform: translateX(-200%);
-  animation: slideInLeft 1.5s ease-in-out 0s forwards;
+  animation: slideInLeft-df6a20b5 1.5s ease-in-out 0s forwards;
 }
-.chat-detail .detail-body .body-left .left-img {
+.chat-detail .detail-body .body-left .left-img.data-v-df6a20b5 {
   width: 3rem;
   height: 3rem;
 }
-.chat-detail .detail-body .body-left .left-img image {
+.chat-detail .detail-body .body-left .left-img image.data-v-df6a20b5 {
   max-width: 3rem;
   max-height: 3rem;
   border-radius: 50%;
 }
-.chat-detail .detail-body .body-left .left-img .left-status {
+.chat-detail .detail-body .body-left .left-img .left-status.data-v-df6a20b5 {
   width: 1rem;
   height: 1rem;
   position: relative;
@@ -86,24 +86,24 @@
   bottom: 1rem;
   border-radius: 50%;
 }
-.chat-detail .detail-body .body-left .left-img .status-online {
+.chat-detail .detail-body .body-left .left-img .status-online.data-v-df6a20b5 {
   background-color: greenyellow;
 }
-.chat-detail .detail-body .body-left .left-img .status-offline {
+.chat-detail .detail-body .body-left .left-img .status-offline.data-v-df6a20b5 {
   background-color: darkgrey;
 }
-.chat-detail .detail-body .body-left .left-info {
+.chat-detail .detail-body .body-left .left-info.data-v-df6a20b5 {
   display: flex;
   flex-direction: column;
   margin: 0 0.2rem;
   padding: 0.1rem 0;
 }
-.chat-detail .detail-body .body-left .left-info label {
+.chat-detail .detail-body .body-left .left-info label.data-v-df6a20b5 {
   font-weight: 200;
   font-size: 0.8rem;
   margin-bottom: 0.2rem;
 }
-.chat-detail .detail-body .body-left .left-info .info-content {
+.chat-detail .detail-body .body-left .left-info .info-content.data-v-df6a20b5 {
   min-height: 1.8rem;
   line-height: 1.8rem;
   border-radius: 0.5rem;
@@ -111,53 +111,53 @@
   background-color: #3f3b52;
   max-width: 75vw;
 }
-.chat-detail .detail-body .body-left .left-info .info-content image {
+.chat-detail .detail-body .body-left .left-info .info-content image.data-v-df6a20b5 {
   min-width: 50vw;
   width: 100%;
 }
-.chat-detail .detail-body .body-right {
+.chat-detail .detail-body .body-right.data-v-df6a20b5 {
   margin-bottom: 0.5rem;
   display: flex;
   justify-content: flex-end;
   transform: translateX(200%);
-  animation: slideInRight 1.5s ease-in-out 0s forwards;
+  animation: slideInRight-df6a20b5 1.5s ease-in-out 0s forwards;
 }
-.chat-detail .detail-body .body-right .right-img {
+.chat-detail .detail-body .body-right .right-img.data-v-df6a20b5 {
   width: 3rem;
   height: 3rem;
 }
-.chat-detail .detail-body .body-right .right-img image {
+.chat-detail .detail-body .body-right .right-img image.data-v-df6a20b5 {
   max-width: 3rem;
   max-height: 3rem;
   border-radius: 50%;
 }
-.chat-detail .detail-body .body-right .right-img .right-status {
+.chat-detail .detail-body .body-right .right-img .right-status.data-v-df6a20b5 {
   width: 1rem;
   height: 1rem;
   position: relative;
   bottom: 1rem;
   border-radius: 50%;
 }
-.chat-detail .detail-body .body-right .right-img .status-online {
+.chat-detail .detail-body .body-right .right-img .status-online.data-v-df6a20b5 {
   background-color: greenyellow;
 }
-.chat-detail .detail-body .body-right .right-img .status-offline {
+.chat-detail .detail-body .body-right .right-img .status-offline.data-v-df6a20b5 {
   background-color: darkgrey;
 }
-.chat-detail .detail-body .body-right .right-info {
+.chat-detail .detail-body .body-right .right-info.data-v-df6a20b5 {
   display: flex;
   flex-direction: column;
   margin: 0 0.2rem;
   padding: 0.1rem 0;
 }
-.chat-detail .detail-body .body-right .right-info label {
+.chat-detail .detail-body .body-right .right-info label.data-v-df6a20b5 {
   display: flex;
   justify-content: flex-end;
   font-weight: 200;
   font-size: 0.8rem;
   margin-bottom: 0.2rem;
 }
-.chat-detail .detail-body .body-right .right-info .info-content {
+.chat-detail .detail-body .body-right .right-info .info-content.data-v-df6a20b5 {
   min-height: 1.8rem;
   line-height: 1.8rem;
   border-radius: 0.5rem;
@@ -165,30 +165,30 @@
   background-color: #3f3b52;
   max-width: 75vw;
 }
-.chat-detail .detail-body .body-right .right-info .info-content image {
+.chat-detail .detail-body .body-right .right-info .info-content image.data-v-df6a20b5 {
   min-width: 50vw;
   width: 100%;
 }
-.chat-detail .detail-body .body-right .right-info .info-content a {
+.chat-detail .detail-body .body-right .right-info .info-content a.data-v-df6a20b5 {
   font-size: 1rem;
   font-weight: 200;
 }
-.chat-detail .detail-footer {
+.chat-detail .detail-footer.data-v-df6a20b5 {
   width: 100vw;
   position: fixed;
   bottom: 0;
   background-color: #221f30;
 }
-.chat-detail .detail-footer .footer-main {
+.chat-detail .detail-footer .footer-main.data-v-df6a20b5 {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 0.8rem;
 }
-.chat-detail .detail-footer .footer-main input {
+.chat-detail .detail-footer .footer-main input.data-v-df6a20b5 {
   flex-grow: 1;
 }
-.chat-detail .detail-footer .footer-other {
+.chat-detail .detail-footer .footer-other.data-v-df6a20b5 {
   display: flex;
   justify-content: center;
   align-items: center;
