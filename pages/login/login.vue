@@ -4,15 +4,15 @@
 		<view class="login-form">
 			<view class="form-item">
 				<view class="title">用户名</view>
-				<input class="uni-input" type="text" focus placeholder="" />
+				<input class="uni-input" placeholder="请输入用户名" type="text" focus />
 			</view>
 			<view class="form-item">
 				<view class="title">密码</view>
-				<input class="uni-input" type="password" placeholder="" />
+				<input class="uni-input" type="password" placeholder="请输入密码" />
 			</view>
 			<view class="form-item" v-if="loginOrRegister">
 				<view class="title">确认密码</view>
-				<input class="uni-input" type="password" placeholder="" />
+				<input class="uni-input" type="password" placeholder="重复上述的输入" />
 			</view>
 			<view class="form-item item-btns">
 				<button type="default" @click="showTowPage" class="btn-1">{{showStatus}}</button>
@@ -44,10 +44,46 @@
 				if(this.loginOrRegister){
 					console.log("注册");
 				}else{
-					console.log("登录");
-					uni.switchTab({
-						url:'/pages/index/index'
+					/**
+					 * 注意此处
+					 * 小程序请直接给出请求明文地址
+					 * 其余设备则通过代理的形式解决跨域问题
+					 */
+					// #ifdef MP-WEIXIN
+					uni.request({
+						url:'http://localhost:8000/due/login/',
+						method:'POST',
+						header: {
+							'content-type': 'application/x-www-form-urlencoded'
+						},
+						data: {
+							"username": 'heyikai',
+							"passwd": '123456'
+						},
+						success: (res) => {
+							console.log(res);
+							console.log("处理成功")
+						}
 					})
+					// #endif
+					// #ifndef MP-WEIXIN
+					uni.request({
+						url:'/api/due/login/',
+						method:'POST',
+						header: {
+							'content-type': 'application/x-www-form-urlencoded'
+						},
+						data: {
+							"username": 'heyikai',
+							"passwd": '123456'
+						},
+						success: (res) => {
+							console.log(res);
+							console.log("处理成功")
+						}
+					})
+					// #endif
+					
 				}
 			}
 		}

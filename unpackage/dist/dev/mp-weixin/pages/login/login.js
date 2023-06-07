@@ -21,9 +21,20 @@ const _sfc_main = {
       if (this.loginOrRegister) {
         console.log("注册");
       } else {
-        console.log("登录");
-        common_vendor.index.switchTab({
-          url: "/pages/index/index"
+        common_vendor.index.request({
+          url: "http://localhost:8000/due/login/",
+          method: "POST",
+          header: {
+            "content-type": "application/x-www-form-urlencoded"
+          },
+          data: {
+            "username": "heyikai",
+            "passwd": "123456"
+          },
+          success: (res) => {
+            console.log(res);
+            console.log("处理成功");
+          }
         });
       }
     }
